@@ -5,6 +5,7 @@ import { BooksModule } from './books/book.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as dotenv from "dotenv"
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 dotenv.config();
 
 @Module({
@@ -14,7 +15,8 @@ dotenv.config();
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.DB_URI),
-    BooksModule
+    BooksModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
