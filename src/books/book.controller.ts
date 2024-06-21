@@ -14,8 +14,10 @@ import { UpdateBookDto } from './dto/update-book.dto';
 import { Book } from './schemas/book.schema';
 import { BookService } from './book.service';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiBearerAuth } from '@nestjs/swagger';
 // import { PassportModule } from '@nestjs/passport';
 
+@ApiBearerAuth('JWT-auth')
 @Controller('book')
 export class BookController {
   constructor(private readonly bookService: BookService) {}

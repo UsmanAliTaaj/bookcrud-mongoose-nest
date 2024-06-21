@@ -17,6 +17,16 @@ async function bootstrap() {
     .setTitle('Api end Points')
     .setDescription('Api books collection')
     .setVersion('1.0')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'Jwt',
+      name: 'Jwt',
+      description: 'Enter Jwt token',
+      in: 'header',
+    },
+    'JWT-auth',
+  )
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
